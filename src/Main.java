@@ -27,15 +27,17 @@ public class Main {
                 System.out.println();
             }
 
-            // Carrotfinder
-            //could make it so it will skip every other row/column so it skips already "eaten" carrots by
-            // changing the iterator incrementations to "i+=2", but im not sure if that's the goal"
+           // iterates over every index, as well as i+1 and if condition sets all to 0 (eaten)
             int leaps = 0;
             for (int i = 0; i < garden.length - 1; i++) {
                 for (int j = 0; j < garden.length - 1; j++) {
                     if (garden[i][j] < garden.length) {
                         if (garden[i][j] == 1 && garden[i][j + 1] == 1 &&
                                 garden[i + 1][j] == 1 && garden[i + 1][j + 1] == 1) {
+                            garden[i][j] = 0;
+                            garden[i][j+1] = 0;
+                            garden[i+1][j] = 0;
+                            garden[i+1][j+1] = 0;
                             leaps++;
                         }
                     }
